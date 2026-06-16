@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Óscar Calles Sáez - CV</title>
     <style>
+        :root {
+            --bg: #e9edf3;
+            --surface: #ffffff;
+            --text: #14202e;
+            --muted: #4f6072;
+            --accent: #18324a;
+            --accent-soft: #dfe7f0;
+            --border: #d4dce6;
+        }
+
         /* RESET */
         * {
             margin: 0;
@@ -14,19 +24,20 @@
         }
 
         body {
-            background-color: #e6e9ef;
+            background-color: var(--bg);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            font-family: Inter, Roboto, Helvetica, Arial, sans-serif;
             padding: 40px 20px;
+            color: var(--text);
         }
 
         .cv-container {
             max-width: 1000px;
             width: 100%;
-            background: #ffffff;
+            background: var(--surface);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
             border-radius: 12px;
             padding: 45px 50px;
@@ -35,7 +46,7 @@
 
         /* HEADER */
         .header {
-            border-bottom: 3px solid #1e2a3a;
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 20px;
             margin-bottom: 22px;
         }
@@ -43,7 +54,7 @@
         .header h1 {
             font-size: 32px;
             font-weight: 700;
-            color: #0b1a2a;
+            color: var(--text);
             letter-spacing: -0.3px;
         }
 
@@ -53,7 +64,7 @@
             gap: 12px 30px;
             margin-top: 8px;
             font-size: 15px;
-            color: #2c3e50;
+            color: var(--muted);
         }
 
         .header .subhead span {
@@ -63,7 +74,7 @@
         }
 
         .header .subhead a {
-            color: #0b5e8a;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 500;
         }
@@ -82,8 +93,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: #1e2a3a;
-            border-bottom: 2px solid #d0d7e2;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
             padding-bottom: 6px;
             margin-bottom: 14px;
         }
@@ -91,8 +102,8 @@
         .bio {
             font-size: 15px;
             line-height: 1.6;
-            color: #1e2a3a;
-            background: #f4f6fa;
+            color: var(--text);
+            background: #f7f9fc;
             padding: 14px 18px;
             border-radius: 8px;
             margin-bottom: 6px;
@@ -100,21 +111,21 @@
 
         .approach-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            grid-template-columns: 1fr;
+            gap: 12px;
         }
 
         .approach-card {
-            background: #f7f9fc;
-            border: 1px solid #d9e1ea;
+            background: #f8fafc;
+            border: 1px solid var(--border);
             border-radius: 10px;
             padding: 14px 16px;
         }
 
         .approach-card.recommended {
             background: #eef4fb;
-            border-color: #9cb6d4;
-            box-shadow: inset 0 0 0 1px rgba(88, 123, 165, 0.05);
+            border-color: #b7c7d9;
+            box-shadow: inset 0 0 0 1px rgba(24, 50, 74, 0.04);
         }
 
         .approach-card .label {
@@ -123,21 +134,21 @@
             font-weight: 700;
             letter-spacing: 0.4px;
             text-transform: uppercase;
-            color: #1e3a5a;
+            color: var(--accent);
             margin-bottom: 8px;
         }
 
         .approach-card .title {
             font-size: 16px;
             font-weight: 700;
-            color: #0b1a2a;
+            color: var(--text);
             margin-bottom: 6px;
         }
 
         .approach-card p {
             font-size: 14px;
             line-height: 1.6;
-            color: #1e2a3a;
+            color: var(--text);
             margin-bottom: 8px;
         }
 
@@ -152,14 +163,14 @@
             margin-bottom: 5px;
             font-size: 14px;
             line-height: 1.5;
-            color: #1e2a3a;
+            color: var(--text);
         }
 
         .approach-card ul li::before {
             content: "•";
             position: absolute;
             left: 0;
-            color: #1e5a7a;
+            color: var(--accent);
             font-weight: 700;
         }
 
@@ -170,11 +181,11 @@
         }
 
         .edu-item strong {
-            color: #0b1a2a;
+            color: var(--text);
         }
 
         .edu-item .meta {
-            color: #3d4f60;
+            color: var(--muted);
             font-weight: 400;
         }
 
@@ -188,16 +199,16 @@
         }
 
         .skills-grid .tag {
-            background: #eef1f5;
+            background: var(--accent-soft);
             padding: 2px 12px;
             border-radius: 20px;
             font-weight: 500;
-            color: #0b1a2a;
+            color: var(--text);
         }
 
         .skills-grid .tag-ai {
-            background: #d4e0f0;
-            border: 1px solid #7f9bc0;
+            background: #d9e4ef;
+            border: 1px solid #a6b8ca;
         }
 
         /* EXPERIENCE */
@@ -216,19 +227,19 @@
         .exp-header .role {
             font-weight: 700;
             font-size: 16.5px;
-            color: #0b1a2a;
+            color: var(--text);
         }
 
         .exp-header .company {
             font-weight: 600;
-            color: #1e3a5a;
+            color: var(--accent);
         }
 
         .exp-header .date {
             font-weight: 400;
-            color: #4a5f72;
+            color: var(--muted);
             font-size: 14px;
-            background: #f0f3f7;
+            background: #f3f6fa;
             padding: 0 12px;
             border-radius: 30px;
             white-space: nowrap;
@@ -239,7 +250,7 @@
             padding-left: 6px;
             font-size: 14.5px;
             line-height: 1.6;
-            color: #1e2a3a;
+            color: var(--text);
         }
 
         .exp-desc ul {
@@ -257,17 +268,17 @@
             content: "▹";
             position: absolute;
             left: 0;
-            color: #1e5a7a;
+            color: var(--accent);
             font-weight: 700;
         }
 
         .tech-badge {
             display: inline-block;
-            background: #eaf0f6;
+            background: var(--accent-soft);
             font-size: 12.5px;
             padding: 0 10px;
             border-radius: 30px;
-            color: #1a3345;
+            color: var(--text);
             font-weight: 500;
             margin-top: 5px;
         }
@@ -275,15 +286,15 @@
         /* COURSES */
         .courses-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 30px;
+            grid-template-columns: 1fr;
+            gap: 14px;
             font-size: 14px;
             line-height: 1.6;
         }
 
         .courses-grid .cat {
             font-weight: 700;
-            color: #0b1a2a;
+            color: var(--text);
             margin-top: 6px;
         }
 
@@ -306,7 +317,7 @@
             content: "▪";
             position: absolute;
             left: 0;
-            color: #2c5f7a;
+            color: var(--accent);
         }
 
         /* RESPONSIVE */
@@ -317,10 +328,6 @@
 
             .header h1 {
                 font-size: 26px;
-            }
-
-            .courses-grid {
-                grid-template-columns: 1fr;
             }
 
             .exp-header {
@@ -350,6 +357,15 @@
 
             .bio {
                 background: #f4f6fa;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .approach-card,
+            .approach-card.recommended,
+            .skills-grid .tag,
+            .skills-grid .tag-ai,
+            .tech-badge {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -393,6 +409,22 @@
             </div>
         </div>
 
+        <!-- SKILLS -->
+        <div class="section">
+            <div class="section-title">Skills</div>
+            <div class="skills-grid">
+                <span class="tag"><strong>Languages:</strong> C#, Java, Python, JavaScript, TypeScript,
+                    Objective-C</span>
+                <span class="tag"><strong>Frameworks:</strong> .NET Core, Spring Boot, Spring MVC, Angular 17, WPF,
+                    Entity Framework, LINQ, J2SE, J2EE</span>
+                <span class="tag"><strong>Tools:</strong> Git, Kanban, Agile, Docker, Microservices, REST APIs, OAuth2,
+                    OpenID, Azure, GCP, Terraform, CI/CD</span>
+                <span class="tag tag-ai"><strong>AI-Assisted Dev:</strong> GitHub Copilot Pro, agentic coding workflows,
+                    automated commit messaging, documentation-as-code (docs.md), architectural review &
+                    validation</span>
+            </div>
+        </div>
+
         <!-- RESUME AS CODE -->
         <div class="section">
             <div class="section-title">Resume as Code</div>
@@ -428,22 +460,6 @@
             <div class="edu-item">
                 <strong>Bachelor Degree in Computer Science</strong>
                 <span class="meta">– Universidad Nacional de Educación a Distancia (UNED), Graduated 2007</span>
-            </div>
-        </div>
-
-        <!-- SKILLS -->
-        <div class="section">
-            <div class="section-title">Skills</div>
-            <div class="skills-grid">
-                <span class="tag"><strong>Languages:</strong> C#, Java, Python, JavaScript, TypeScript,
-                    Objective-C</span>
-                <span class="tag"><strong>Frameworks:</strong> .NET Core, Spring Boot, Spring MVC, Angular 17, WPF,
-                    Entity Framework, LINQ, J2SE, J2EE</span>
-                <span class="tag"><strong>Tools:</strong> Git, Kanban, Agile, Docker, Microservices, REST APIs, OAuth2,
-                    OpenID, Azure, GCP, Terraform, CI/CD</span>
-                <span class="tag tag-ai"><strong>AI-Assisted Dev:</strong> GitHub Copilot Pro, agentic coding workflows,
-                    automated commit messaging, documentation-as-code (docs.md), architectural review &
-                    validation</span>
             </div>
         </div>
 
