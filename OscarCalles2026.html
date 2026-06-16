@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óscar Calles Sáez - CV</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e6e9ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 40px 20px;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            border-radius: 12px;
+            padding: 45px 50px;
+            transition: all 0.2s;
+        }
+
+        /* HEADER */
+        .header {
+            border-bottom: 3px solid #1e2a3a;
+            padding-bottom: 20px;
+            margin-bottom: 22px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0b1a2a;
+            letter-spacing: -0.3px;
+        }
+
+        .header .subhead {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 30px;
+            margin-top: 8px;
+            font-size: 15px;
+            color: #2c3e50;
+        }
+
+        .header .subhead span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header .subhead a {
+            color: #0b5e8a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header .subhead a:hover {
+            text-decoration: underline;
+        }
+
+        /* SECCIONES */
+        .section {
+            margin-top: 26px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1e2a3a;
+            border-bottom: 2px solid #d0d7e2;
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+
+        .bio {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1e2a3a;
+            background: #f4f6fa;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .approach-card {
+            background: #f7f9fc;
+            border: 1px solid #d9e1ea;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .approach-card.recommended {
+            background: #eef4fb;
+            border-color: #9cb6d4;
+            box-shadow: inset 0 0 0 1px rgba(88, 123, 165, 0.05);
+        }
+
+        .approach-card .label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: #1e3a5a;
+            margin-bottom: 8px;
+        }
+
+        .approach-card .title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0b1a2a;
+            margin-bottom: 6px;
+        }
+
+        .approach-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1e2a3a;
+            margin-bottom: 8px;
+        }
+
+        .approach-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .approach-card ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1e2a3a;
+        }
+
+        .approach-card ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1e5a7a;
+            font-weight: 700;
+        }
+
+        /* EDUCATION */
+        .edu-item {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .edu-item strong {
+            color: #0b1a2a;
+        }
+
+        .edu-item .meta {
+            color: #3d4f60;
+            font-weight: 400;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            font-size: 14.5px;
+            line-height: 1.6;
+        }
+
+        .skills-grid .tag {
+            background: #eef1f5;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: #0b1a2a;
+        }
+
+        .skills-grid .tag-ai {
+            background: #d4e0f0;
+            border: 1px solid #7f9bc0;
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 22px;
+        }
+
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px 15px;
+        }
+
+        .exp-header .role {
+            font-weight: 700;
+            font-size: 16.5px;
+            color: #0b1a2a;
+        }
+
+        .exp-header .company {
+            font-weight: 600;
+            color: #1e3a5a;
+        }
+
+        .exp-header .date {
+            font-weight: 400;
+            color: #4a5f72;
+            font-size: 14px;
+            background: #f0f3f7;
+            padding: 0 12px;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+
+        .exp-desc {
+            margin-top: 6px;
+            padding-left: 6px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #1e2a3a;
+        }
+
+        .exp-desc ul {
+            list-style: none;
+            padding-left: 6px;
+        }
+
+        .exp-desc ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 3px;
+        }
+
+        .exp-desc ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #1e5a7a;
+            font-weight: 700;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: #eaf0f6;
+            font-size: 12.5px;
+            padding: 0 10px;
+            border-radius: 30px;
+            color: #1a3345;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        /* COURSES */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 30px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .courses-grid .cat {
+            font-weight: 700;
+            color: #0b1a2a;
+            margin-top: 6px;
+        }
+
+        .courses-grid .cat:first-of-type {
+            margin-top: 0;
+        }
+
+        .courses-grid ul {
+            list-style: none;
+            padding-left: 6px;
+        }
+
+        .courses-grid ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 2px;
+        }
+
+        .courses-grid ul li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #2c5f7a;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 680px) {
+            .cv-container {
+                padding: 25px 18px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* PRINT */
+        @media print {
+            body {
+                background: white;
+                padding: 0.3in;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+            }
+
+            .exp-header .date {
+                background: #f0f3f7;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .bio {
+                background: #f4f6fa;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .skills-grid .tag,
+            .skills-grid .tag-ai,
+            .tech-badge,
+            .courses-grid ul li::before {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Óscar Calles Sáez</h1>
+            <div class="subhead">
+                <span>📍 Rodrigo de la Fuente 58 • Toledo, Spain • 45005</span>
+                <span>📱 (+34) 617 02 69 41</span>
+                <span>✉️ <a href="mailto:ocalles@gmail.com">ocalles@gmail.com</a></span>
+                <span>🔗 <a href="https://www.linkedin.com/in/oscar-calles"
+                        target="_blank">linkedin.com/in/oscar-calles</a></span>
+            </div>
+        </div>
+
+        <!-- BIO -->
+        <div class="section">
+            <div class="section-title">Bio</div>
+            <div class="bio">
+                Highly driven Software Engineer with over 15 years of experience in full-stack development, backend
+                systems, and mobile applications. Proven track record of improving software performance, modernizing
+                legacy systems, and delivering complex projects on time. Strong advocate of clean code, architectural
+                design, and continuous integration. Recently focused on Spring Boot microservices and Angular SPAs,
+                combining AI-assisted development with human-led architectural decisions to accelerate delivery without
+                sacrificing quality.
+            </div>
+        </div>
+
+        <!-- RESUME AS CODE -->
+        <div class="section">
+            <div class="section-title">Resume as Code</div>
+            <div class="approach-grid">
+                <div class="approach-card recommended">
+                    <div class="label">Recomendado</div>
+                    <div class="title">Reactive Resume</div>
+                    <p>Herramienta web gratuita y de código abierto, muy popular entre desarrolladores, para crear y
+                        personalizar el currículum con control visual total.</p>
+                    <ul>
+                        <li>Importa datos y ajusta el diseño de forma visual.</li>
+                        <li>Combina facilidad de uso con una presentación profesional.</li>
+                        <li>Ideal si quieres iterar rápido sin perder control.</li>
+                    </ul>
+                </div>
+                <div class="approach-card">
+                    <div class="label">Estándar abierto</div>
+                    <div class="title">JSON Resume</div>
+                    <p>Especificación open source basada en JSON para estructurar la experiencia, habilidades y
+                        proyectos como código reutilizable.</p>
+                    <ul>
+                        <li>Permite usar múltiples temas HTML/CSS de la comunidad.</li>
+                        <li>Facilita mantener los datos del CV desacoplados del diseño.</li>
+                        <li>Encaja bien si quieres tratar el CV como un proyecto versionado.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <strong>Bachelor Degree in Computer Science</strong>
+                <span class="meta">– Universidad Nacional de Educación a Distancia (UNED), Graduated 2007</span>
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="section">
+            <div class="section-title">Skills</div>
+            <div class="skills-grid">
+                <span class="tag"><strong>Languages:</strong> C#, Java, Python, JavaScript, TypeScript,
+                    Objective-C</span>
+                <span class="tag"><strong>Frameworks:</strong> .NET Core, Spring Boot, Spring MVC, Angular 17, WPF,
+                    Entity Framework, LINQ, J2SE, J2EE</span>
+                <span class="tag"><strong>Tools:</strong> Git, Kanban, Agile, Docker, Microservices, REST APIs, OAuth2,
+                    OpenID, Azure, GCP, Terraform, CI/CD</span>
+                <span class="tag tag-ai"><strong>AI-Assisted Dev:</strong> GitHub Copilot Pro, agentic coding workflows,
+                    automated commit messaging, documentation-as-code (docs.md), architectural review &
+                    validation</span>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">Experience</div>
+
+            <!-- EXPERIENCE 1 – NEW -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="role">Backend: Java 11 / Spring Boot &nbsp;|&nbsp; Frontend: Angular 17</span>
+                    <span class="company">Digital Transformation Agency – Regional Government of Castilla-La
+                        Mancha</span>
+                    <span class="date">04/2025 – Present</span>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>Leading development of a new enterprise-grade digital services platform using Java 11,
+                            Spring Boot, and Angular 17.</li>
+                        <li>Designed and implemented RESTful microservices with Spring Data JPA, Spring Security, and
+                            OAuth2 authentication.</li>
+                        <li>Built responsive, component-based frontends with Angular 17, using RxJS, reactive forms, and
+                            NgRx for state management.</li>
+                        <li>Integrated GitHub Copilot Pro to accelerate coding, generating descriptive commit messages
+                            and maintaining a <code>docs.md</code> file with every architectural change.</li>
+                        <li>Evolved the development process to an <strong>agentic mode</strong>, where the AI agent
+                            proposes code implementations and architectural variations, while I review, validate, and
+                            select the best approach based on performance, maintainability, and team style guidelines.
+                        </li>
+                        <li>Reduced feature delivery time by ~30% compared to traditional coding, while keeping
+                            technical debt under control through continuous validation and manual oversight.</li>
+                        <li>Collaborated with product owners and QA to align deliverables with business requirements and
+                            non-functional goals (scalability, security, observability).</li>
+                    </ul>
+                    <span class="tech-badge">Java 11 • Spring Boot • Angular 17 • OAuth2 • RxJS • NgRx • Docker •
+                        GCP</span>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE 2 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="role">.NET Software Developer, Full Stack</span>
+                    <span class="company">Accuro Spain</span>
+                    <span class="date">06/2023 – 04/2025</span>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>Public sector government migration project using .NET 7 and Angular 15.</li>
+                        <li>Modernized legacy modules, refactored business logic, and implemented new micro-frontends.
+                        </li>
+                        <li>Improved test coverage with xUnit and Moq, and ensured CI/CD pipelines with Azure DevOps.
+                        </li>
+                    </ul>
+                    <span class="tech-badge">.NET 7 • Angular 15 • xUnit • Moq • Azure DevOps</span>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE 3 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="role">.NET Software Developer, Full Stack</span>
+                    <span class="company">UST Spain</span>
+                    <span class="date">12/2021 – 04/2023</span>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>VMware migration project using .NET and Angular (12/2021 – 07/2022).</li>
+                        <li>Developed backend APIs and integrated with external authentication systems.</li>
+                    </ul>
+                    <span class="tech-badge">.NET • Angular • REST APIs • OAuth2</span>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE 4 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="role">.NET Software Developer</span>
+                    <span class="company">Castilla-La Mancha Media</span>
+                    <span class="date">12/2015 – 11/2021</span>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>Built internal tools using WPF, .NET, console applications, Windows scripting, JavaScript,
+                            and Python.</li>
+                        <li>Maintained and improved legacy systems, reducing response times by 20%.</li>
+                    </ul>
+                    <span class="tech-badge">WPF • .NET • JavaScript • Python</span>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE 5 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="role">iOS Developer</span>
+                    <span class="company">Gwella</span>
+                    <span class="date">10/2015 – 12/2015</span>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>Developed a health-sector iOS application with Objective-C and REST APIs.</li>
+                    </ul>
+                    <span class="tech-badge">iOS • Objective-C • REST</span>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE 6 -->
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="role">iOS Developer</span>
+                    <span class="company">Buzinger</span>
+                    <span class="date">03/2015 – 09/2015</span>
+                </div>
+                <div class="exp-desc">
+                    <ul>
+                        <li>Created an indoor beacon-location iOS app.</li>
+                        <li>Also contributed to J2EE, SQL, Angular, and Spring MVC projects.</li>
+                    </ul>
+                    <span class="tech-badge">iOS • Objective-C • J2EE • SQL • Angular • Spring MVC</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COURSES -->
+        <div class="section">
+            <div class="section-title">Courses &amp; Certifications (2022–2023)</div>
+            <div class="courses-grid">
+                <div>
+                    <div class="cat">Udemy</div>
+                    <ul>
+                        <li>Agile Fundamentals (Scrum &amp; Kanban)</li>
+                        <li>Blazor Bootcamp – .NET 6 E-Commerce (WASM &amp; Server)</li>
+                        <li>ASP.NET Core + Angular from Scratch</li>
+                        <li>Building Microservices with ASP.NET Core 5.0 and Docker</li>
+                        <li>Git Mindset – Underlying Architecture</li>
+                        <li>Google Cloud Developer – GCP Professional Certification</li>
+                        <li>Microservices Architecture – Complete Guide, Implementation on .NET 5, Designing Highly
+                            Scalable Systems, Observability &amp; Resilience</li>
+                        <li>Secure .NET Microservices with IdentityServer4, OAuth2, OpenID</li>
+                        <li>SQL for Beginners (MySQL &amp; Database Design)</li>
+                        <li>Terraform Beginner to Advanced (GCP)</li>
+                        <li>The Complete Node.js Developer Course (3rd Edition)</li>
+                        <li>English Grammar Launch</li>
+                        <li>Arquitectura de Aplicaciones Empresariales con .NET 7</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="cat">Pluralsight</div>
+                    <ul>
+                        <li>Object-Oriented Programming Fundamentals in C#</li>
+                        <li>Developing with .NET on Azure – Getting Started</li>
+                        <li>.NET 6 First Look</li>
+                        <li>Regular Expressions</li>
+                        <li>Cross-platform SQL Server Management for Developers (VS Code)</li>
+                        <li>Using IIS 10 as a Developer</li>
+                        <li>Angular 11 Fundamentals, Getting Started, NgRx, Reactive Forms, Routing, Component
+                            Communication, RxJS, Unit Testing (Angular 12)</li>
+                        <li>Mocking with Moq and xUnit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
