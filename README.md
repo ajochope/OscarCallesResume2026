@@ -1,12 +1,12 @@
 # OscarCallesResume2026
 
-Currículum en formato HTML publicado en GitHub.
+HTML resume published on GitHub.
 
-## Ver en el navegador
+## View in Browser
 
-- [Abrir el CV en una pestaña del navegador](https://htmlpreview.github.io/?https://github.com/ajochope/OscarCallesResume2026/blob/main/OscarCalles2026.html)
-- [Ver el repositorio público](https://github.com/ajochope/OscarCallesResume2026)
+- [Open the resume in a browser tab](https://htmlpreview.github.io/?https://github.com/ajochope/OscarCallesResume2026/blob/main/OscarCalles2026.html)
+- [View the public repository](https://github.com/ajochope/OscarCallesResume2026)
 
-## Archivo principal
+## Main File
 
 - [OscarCalles2026.html](OscarCalles2026.html)
